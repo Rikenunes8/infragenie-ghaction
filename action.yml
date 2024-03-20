@@ -1,0 +1,26 @@
+name: 'Infragenie'
+description: 'Commit and push to the repository the changes made to the architecture of the system in a diagram.'
+inputs:
+  access_token:
+    description: 'Access token to push the diagram'
+    required: true
+  host:
+    description: 'Infragenie host'
+    required: false
+    default: 'http://localhost:8000'
+  readme:
+    description: 'Create or update README.md file with the architecture diagram'
+    required: false
+    type: boolean
+    default: false
+  repository:
+    description: 'Repository where the diagram will be pushed'
+    required: false
+    default: ${{ github.repository }}
+  branch:
+    description: 'Branch where the diagram will be pushed'
+    required: false
+    default: ''
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
